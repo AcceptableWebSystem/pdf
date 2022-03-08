@@ -1,0 +1,59 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "bin": {
+    "entry": "bin/entry.js"
+  },
+  "scripts": {
+    "build": "run-s build:*",
+    "build:npmInstall": "npm i",
+    "build:typeCheck": "tsc --noEmit",
+    "build:bundle": "node ./bundle.js",
+    "watch": "run-p watch:*",
+    "watch:typeCheck": "tsc --noEmit -w",
+    "watch:build": "node ./bundle.js watch",
+    "test": "jest",
+    "format": "run-s format:*",
+    "format:eslint": "eslint . --ext ts,js",
+    "format:prettier": "prettier --write \"**/*.{ts,js}\"",
+    "cdk": "cdk",
+    "localtest": "npx ts-node localtest",
+    "create:repository": "aws codecommit create-repository --repository-name xxx --region ap-northeast-1",
+    "deployPipelineAll": "npx cdk deploy --all",
+    "deployPipelineDev": "npx cdk deploy PipelineStackDev",
+    "deployPipelineStg": "npx cdk deploy PipelineStackStg",
+    "deployPipelineSand": "npx cdk deploy PipelineStackSandbox",
+    "synth": "npx cdk synth AppVpc"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.124.0",
+    "@types/aws-lambda": "^8.10.83",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.9.6",
+    "@types/node-uuid": "0.0.29",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "esbuild": "^0.12.12",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-custom-alias": "^1.2.0",
+    "eslint-plugin-import": "^2.23.4",
+    "glob": "^7.1.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.2.1",
+    "typescript": "~4.4.3"
+  },
+  "dependencies": {
+    "@types/pdf-parse": "^1.1.1",
+    "axios": "^0.22.0",
+    "dayjs": "^1.10.7",
+    "formdata-node": "^4.3.0",
+    "fp-ts": "^2.11.5",
+    "io-ts": "^2.2.16",
+    "js-base64": "^3.7.2",
+    "jwt-decode": "^3.1.2",
+    "node-uuid": "^1.4.8",
+    "pdf-parse": "^1.1.1"
+  }
+}
